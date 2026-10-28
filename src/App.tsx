@@ -9,6 +9,7 @@ import {
   ThemeMode,
 } from './components/hud/TopNavHud';
 import { FlightDock } from './components/hud/FlightDock';
+import { SanctuaryIntroOverlay } from './components/hud/SanctuaryIntroOverlay';
 import { AvianSanctuary3D } from './components/canvas/AvianSanctuary3D';
 import { CineTerraScrollyPage } from './components/editorial/CineTerraScrollyPage';
 import { ChapterBio } from './components/chapters/ChapterBio';
@@ -21,11 +22,13 @@ import {
 } from './components/icons/BotanicalIcons';
 
 export const App: React.FC = () => {
-  // 3D Bird Flight is the default experience per user requirement
+  // Show bird-themed loading screen + experience choice first
+  const [isIntroActive, setIsIntroActive] = useState<boolean>(true);
   const [mode, setMode] = useState<ExperienceMode>('3d-flight');
   const [theme, setTheme] = useState<ThemeMode>('light');
-  // Show Flight Controls Guide first on launch; gone once dismissed, reopenable anytime
-  const [isControlsGuideOpen, setIsControlsGuideOpen] = useState<boolean>(true);
+  // Controls guide opens only when user enters 3D Bird Flight
+  const [isControlsGuideOpen, setIsControlsGuideOpen] = useState<boolean>(false);
+  const [hasSeenControlsGuide, setHasSeenControlsGuide] = useState<boolean>(false);
   const [activePortal, setActivePortal] = useState<PortalId | null>(null);
   const [autoPilotTarget, setAutoPilotTarget] = useState<PortalId | null>(null);
 
@@ -118,10 +121,30 @@ export const App: React.FC = () => {
     setActivePortal(portalId);
   }, []);
 
+  const handleSelectIntroExperience = useCallback((chosenMode: ExperienceMode) => {
+    setMode(chosenMode);
+    setIsIntroActive(false);
+    if (chosenMode === '3d-flight') {
+      setIsControlsGuideOpen(true);
+      setHasSeenControlsGuide(true);
+    } else {
+      setIsControlsGuideOpen(false);
+    }
+  }, []);
+
   const currentPortalMeta = ISLAND_PORTALS.find((p) => p.id === activePortal);
 
   return (
     <>
+      {/* Stage 1 & 2: Bird-Themed Loading Screen -> Experience Choice Screen */}
+      {isIntroActive && (
+        <SanctuaryIntroOverlay
+          theme={theme}
+          onToggleTheme={handleToggleTheme}
+          onSelectExperience={handleSelectIntroExperience}
+        />
+      )}
+
       {/* Persistent Top Navigation HUD + Dismissible/Reopenable Flight Controls Guide */}
       <TopNavHud
         mode={mode}
@@ -129,10 +152,14 @@ export const App: React.FC = () => {
           setActivePortal(null);
           setAutoPilotTarget(null);
           setMode(nextMode);
+          if (nextMode === '3d-flight' && !hasSeenControlsGuide) {
+            setIsControlsGuideOpen(true);
+            setHasSeenControlsGuide(true);
+          }
         }}
         theme={theme}
         onToggleTheme={handleToggleTheme}
-        isControlsGuideOpen={isControlsGuideOpen}
+        isControlsGuideOpen={!isIntroActive && isControlsGuideOpen}
         onToggleControlsGuide={setIsControlsGuideOpen}
       />
 
