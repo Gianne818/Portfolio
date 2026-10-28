@@ -1,0 +1,166 @@
+/* ============================================================================
+   THREE-LAYER DESIGN TOKEN ARCHITECTURE (design-system + apple-design)
+   Layer 1: Primitive Tokens -> Layer 2: Semantic Tokens -> Layer 3: Component Tokens
+   Zero Monospace Fonts — Pure Humanist Sans & Editorial Serif
+   ============================================================================ */
+
+:root {
+  /* MANDATORY (modern-web-guidance dark-mode): Apply color-scheme to :root for viewport-wide theming */
+  color-scheme: light dark;
+
+  /* --------------------------------------------------------------------------
+     1. PRIMITIVE TOKENS (Raw Botanical & Avian Palette)
+     -------------------------------------------------------------------------- */
+  --prm-parchment-50: #FAF7F2;
+  --prm-parchment-100: #F4EFE6;
+  --prm-parchment-200: #E8E1D3;
+  --prm-parchment-300: #D8CFC0;
+
+  --prm-pine-950: #09120D;
+  --prm-pine-900: #0F1D15;
+  --prm-pine-850: #15261C;
+  --prm-pine-800: #1B3B2B;
+  --prm-pine-700: #254D39;
+  --prm-pine-600: #2E5A44;
+  --prm-pine-500: #407559;
+
+  --prm-mint-300: #8AD4AB;
+  --prm-mint-200: #B4E6CA;
+  --prm-mint-100: #E3F3EA;
+
+  --prm-amber-700: #9A4206;
+  --prm-amber-600: #B45309;
+  --prm-amber-500: #C27D38;
+  --prm-amber-400: #E5A869;
+  --prm-amber-300: #F3C68F;
+
+  --prm-ink-900: #18221C;
+  --prm-ink-700: #37473E;
+  --prm-ink-500: #5A6B60;
+  --prm-ink-300: #9FB0A5;
+  --prm-ink-100: #E6F0EA;
+
+  /* Typography Primitives (Strictly Serif + Humanist Sans, No Monospace) */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* Spacing & Radius Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Motion & Spring Curves (apple-design + design-motion-principles) */
+  --ease-spring-gentle: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring-snappy: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --dur-fast: 180ms;
+  --dur-normal: 280ms;
+  --dur-slow: 420ms;
+}
+
+/* ----------------------------------------------------------------------------
+   2. SEMANTIC & COMPONENT TOKENS (Light: Warm Naturalist Parchment)
+   ---------------------------------------------------------------------------- */
+:root,
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-primary: var(--prm-parchment-50);
+  --bg-secondary: var(--prm-parchment-100);
+  --surface-card: #FFFFFF;
+  --surface-card-hover: #FBF9F5;
+  --surface-hud: rgba(250, 247, 242, 0.86);
+  --surface-sheet: rgba(250, 247, 242, 0.94);
+  --surface-scenic-card: rgba(255, 255, 255, 0.88);
+  --border-scenic-card: rgba(255, 255, 255, 0.78);
+
+  --text-primary: var(--prm-ink-900);
+  --text-secondary: var(--prm-ink-700);
+  --text-muted: var(--prm-ink-500);
+
+  --accent-primary: var(--prm-pine-700);
+  --accent-secondary: var(--prm-pine-500);
+  --accent-warm: var(--prm-amber-600);
+  --accent-soft: rgba(37, 77, 57, 0.10);
+
+  --border-subtle: #E2DDD3;
+  --border-strong: #C5BCAE;
+
+  --shadow-card: 0 4px 18px rgba(24, 34, 28, 0.06);
+  --shadow-sheet: 0 20px 56px rgba(15, 29, 21, 0.18);
+
+  --sem-scrollbar-thumb: #B8B0A0;
+  --sem-scrollbar-track: #F2ECE1;
+  accent-color: var(--prm-pine-700);
+}
+
+/* ----------------------------------------------------------------------------
+   3. SEMANTIC & COMPONENT TOKENS (Dark: Deep Moss Canopy)
+   ---------------------------------------------------------------------------- */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-primary: var(--prm-pine-950);
+  --bg-secondary: var(--prm-pine-900);
+  --surface-card: var(--prm-pine-850);
+  --surface-card-hover: #1A2F22;
+  --surface-hud: rgba(15, 29, 21, 0.82);
+  --surface-sheet: rgba(12, 23, 17, 0.94);
+  --surface-scenic-card: rgba(14, 27, 20, 0.86);
+  --border-scenic-card: rgba(138, 212, 171, 0.22);
+
+  --text-primary: var(--prm-ink-100);
+  --text-secondary: #C5D6CC;
+  --text-muted: var(--prm-ink-300);
+
+  --accent-primary: var(--prm-mint-300);
+  --accent-secondary: var(--prm-mint-200);
+  --accent-warm: var(--prm-amber-400);
+  --accent-soft: rgba(138, 212, 171, 0.14);
+
+  --border-subtle: #233B2D;
+  --border-strong: #385E48;
+
+  --shadow-card: 0 8px 26px rgba(0, 0, 0, 0.36);
+  --shadow-sheet: 0 24px 64px rgba(0, 0, 0, 0.58);
+
+  --sem-scrollbar-thumb: #385E48;
+  --sem-scrollbar-track: #0F1D15;
+  accent-color: var(--prm-mint-300);
+}
+
+/* MANDATORY (modern-web-guidance dark-mode):
+   Pair scrollbar-color with scrollbar-width on macOS, and never transition scrollbar-color */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sem-scrollbar-thumb) var(--sem-scrollbar-track);
+}
+
+/* Apple Accessibility: Reduced Transparency Fallback */
+@media (prefers-reduced-transparency: reduce) {
+  :root,
+  html[data-theme="light"] {
+    --surface-hud: #FAF7F2;
+    --surface-sheet: #FAF7F2;
+    --surface-scenic-card: #FAF7F2;
+  }
+  html[data-theme="dark"] {
+    --surface-hud: #0F1D15;
+    --surface-sheet: #0F1D15;
+    --surface-scenic-card: #0F1D15;
+  }
+}
