@@ -415,8 +415,8 @@ export const MILESTONES_LIST: MilestoneItem[] = [
       'Recognized among the Top 25 Regional Startups and awarded Best Logo Design for blending nautical lighthouse symbolism with marine conservation tech.',
     ],
     certificates: [
-      { label: 'Top 25 Regional Finalist Certificate', imageUrl: '/certificates/psc-award-1.png' },
-      { label: 'Best Logo Design Award Certificate', imageUrl: '/certificates/psc-award-2.png' },
+      { label: 'Top 25 Regional Finalist Certificate', imageUrl: './certificates/psc-award-1.png' },
+      { label: 'Best Logo Design Award Certificate', imageUrl: './certificates/psc-award-2.png' },
     ],
   },
   {
@@ -430,9 +430,9 @@ export const MILESTONES_LIST: MilestoneItem[] = [
       'Webinar 3: Agile Pitching, Venture Strategy, and Sustainable Deployment.',
     ],
     certificates: [
-      { label: 'Workshop 1: Human-Centered AI Design', imageUrl: '/certificates/aifest-workshop-1.png' },
-      { label: 'Workshop 2: Technical System Architecture', imageUrl: '/certificates/aifest-workshop-2.png' },
-      { label: 'Webinar 3: Agile Pitching & Venture Strategy', imageUrl: '/certificates/aifest-webinar-3.png' },
+      { label: 'Workshop 1: Human-Centered AI Design', imageUrl: './certificates/aifest-workshop-1.png' },
+      { label: 'Workshop 2: Technical System Architecture', imageUrl: './certificates/aifest-workshop-2.png' },
+      { label: 'Webinar 3: Agile Pitching & Venture Strategy', imageUrl: './certificates/aifest-webinar-3.png' },
     ],
   },
   {
@@ -444,7 +444,7 @@ export const MILESTONES_LIST: MilestoneItem[] = [
       'Focused on Emerging Cloud Technologies, Applied AI in Industry, and Regional Digital Transformation.',
     ],
     certificates: [
-      { label: 'Cebu ICT Student Congress Certificate', imageUrl: '/certificates/psite-congress-2026.png' },
+      { label: 'Cebu ICT Student Congress Certificate', imageUrl: './certificates/psite-congress-2026.png' },
     ],
   },
   {
@@ -456,7 +456,7 @@ export const MILESTONES_LIST: MilestoneItem[] = [
       'Earned verified credential covering ethical artificial intelligence deployment, prompt engineering, generative fundamentals, and responsible technological integration across Southeast Asia.',
     ],
     certificates: [
-      { label: 'AI Ready ASEAN Official Certificate', imageUrl: '/certificates/asean-ai-ready.png' },
+      { label: 'AI Ready ASEAN Official Certificate', imageUrl: './certificates/asean-ai-ready.png' },
     ],
   },
 ];

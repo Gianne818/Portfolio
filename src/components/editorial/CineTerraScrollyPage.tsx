@@ -83,37 +83,37 @@ const FALLBACK_CERTIFICATES_BY_INDEX: Record<number, CertificateImageItem[]> = {
   0: [
     {
       label: 'Top 25 Regional Finalist Certificate',
-      imageUrl: '/certificates/psc-award-1.png',
+      imageUrl: './certificates/psc-award-1.png',
     },
     {
       label: 'Best Logo Design Award Certificate',
-      imageUrl: '/certificates/psc-award-2.png',
+      imageUrl: './certificates/psc-award-2.png',
     },
   ],
   1: [
     {
       label: 'Workshop 1: Human-Centered AI Design',
-      imageUrl: '/certificates/aifest-workshop-1.png',
+      imageUrl: './certificates/aifest-workshop-1.png',
     },
     {
       label: 'Workshop 2: Technical System Architecture',
-      imageUrl: '/certificates/aifest-workshop-2.png',
+      imageUrl: './certificates/aifest-workshop-2.png',
     },
     {
       label: 'Webinar 3: Agile Pitching & Venture Strategy',
-      imageUrl: '/certificates/aifest-webinar-3.png',
+      imageUrl: './certificates/aifest-webinar-3.png',
     },
   ],
   2: [
     {
       label: 'Cebu ICT Student Congress Certificate',
-      imageUrl: '/certificates/psite-congress-2026.png',
+      imageUrl: './certificates/psite-congress-2026.png',
     },
   ],
   3: [
     {
       label: 'AI Ready ASEAN Official Certificate',
-      imageUrl: '/certificates/asean-ai-ready.png',
+      imageUrl: './certificates/asean-ai-ready.png',
     },
   ],
 };
