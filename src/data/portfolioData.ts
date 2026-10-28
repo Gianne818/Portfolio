@@ -46,6 +46,7 @@ export interface IslandPortalInfo {
   id: PortalId;
   numeral: string;
   name: string;
+  shortName?: string;
   landmarkTitle: string;
   subtitle: string;
   coordinates: [number, number, number];
@@ -82,6 +83,7 @@ export const ISLAND_PORTALS: IslandPortalInfo[] = [
     id: 'bio',
     numeral: 'I',
     name: 'Autobiography & Roots',
+    shortName: 'Bio',
     landmarkTitle: 'The Banyan Sanctuary',
     subtitle: 'Origin Story, Life Focus & Verified Milestones',
     coordinates: [-38, 4, -28],
@@ -91,6 +93,7 @@ export const ISLAND_PORTALS: IslandPortalInfo[] = [
     id: 'skills',
     numeral: 'II',
     name: 'Technical Capabilities',
+    shortName: 'Skills',
     landmarkTitle: 'The Astrolabe Observatory',
     subtitle: 'Applied ML, Biomedical Telemetry & Full-Text Inventory',
     coordinates: [38, 6, -32],
@@ -100,6 +103,7 @@ export const ISLAND_PORTALS: IslandPortalInfo[] = [
     id: 'projects',
     numeral: 'III',
     name: 'Top 10 Systems',
+    shortName: 'Projects',
     landmarkTitle: 'PAROLA Lighthouse Spire',
     subtitle: 'Top 10 Engineering & Research Systems',
     coordinates: [0, 8, -58],
@@ -109,6 +113,7 @@ export const ISLAND_PORTALS: IslandPortalInfo[] = [
     id: 'dispatch',
     numeral: 'IV',
     name: 'Dispatch & Contact',
+    shortName: 'Contact',
     landmarkTitle: 'The Carrier Perch Tower',
     subtitle: 'Direct Channels, Collaboration & Executive CV',
     coordinates: [32, 3, 16],

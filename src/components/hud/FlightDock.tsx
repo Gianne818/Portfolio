@@ -50,7 +50,10 @@ export const FlightDock: React.FC<FlightDockProps> = ({
               <span className="dock-portal-roman">
                 Island {portal.numeral} · {portal.landmarkTitle}
               </span>
-              <span className="dock-portal-label">{portal.name}</span>
+              <span className="dock-portal-label dock-portal-label-full">{portal.name}</span>
+              <span className="dock-portal-label dock-portal-label-short">
+                {portal.shortName ?? portal.name}
+              </span>
             </span>
           </button>
         );

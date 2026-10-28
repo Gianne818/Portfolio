@@ -567,6 +567,14 @@ html[data-theme="dark"] .dock-portal-btn.active {
   font-weight: 600;
 }
 
+.dock-portal-label-short {
+  display: none;
+}
+
+.dock-portal-label-full {
+  display: inline;
+}
+
 /* ==========================================================================
    CINETERRA-INSPIRED FULL-BLEED SCENIC SCROLLYTELLING PAGE
    ========================================================================== */
@@ -1873,15 +1881,20 @@ html[data-theme="dark"] .certificate-tab-btn.active {
   .top-nav-hud {
     display: grid;
     grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand controls"
+      "modes modes";
     align-items: center;
     gap: 0.45rem;
     padding: calc(0.45rem + env(safe-area-inset-top, 0px)) 0.65rem 0.45rem;
   }
 
   .hud-brand-pill {
+    grid-area: brand;
     min-width: 0;
     padding: 0.35rem 0.65rem;
     gap: 0.45rem;
+    border-radius: var(--radius-pill);
   }
 
   .hud-brand-icon {
@@ -1902,6 +1915,9 @@ html[data-theme="dark"] .certificate-tab-btn.active {
   }
 
   .hud-controls-cluster {
+    grid-area: controls;
+    display: flex;
+    align-items: center;
     gap: 0.35rem;
   }
 
@@ -1910,6 +1926,7 @@ html[data-theme="dark"] .certificate-tab-btn.active {
     height: 34px;
     padding: 0 0.65rem;
     font-size: 0.74rem;
+    border-radius: var(--radius-pill);
   }
 
   .hud-btn-label {
@@ -1921,16 +1938,19 @@ html[data-theme="dark"] .certificate-tab-btn.active {
   }
 
   .mode-switcher-seg {
-    grid-column: 1 / -1;
+    grid-area: modes;
     width: 100%;
     justify-content: stretch;
+    padding: 3px;
+    border-radius: var(--radius-pill);
   }
 
   .mode-seg-btn {
     flex: 1;
     justify-content: center;
-    padding: 0.4rem 0.6rem;
-    font-size: 0.76rem;
+    padding: 0.42rem 0.6rem;
+    font-size: 0.78rem;
+    border-radius: var(--radius-pill);
   }
 
   .mode-seg-label-full {
@@ -1943,7 +1963,7 @@ html[data-theme="dark"] .certificate-tab-btn.active {
 
   /* Flight status pill below compact 2-row HUD */
   .long-press-flight-pill {
-    top: 98px;
+    top: calc(96px + env(safe-area-inset-top, 0px));
     font-size: 0.72rem;
     padding: 0.32rem 0.75rem;
     max-width: 90vw;
@@ -1954,30 +1974,31 @@ html[data-theme="dark"] .certificate-tab-btn.active {
 
   /* Compact 3D Island Floating Pins on Phone Viewports */
   .island-3d-pin {
-    padding: 0.32rem 0.6rem;
-    border-radius: var(--radius-sm);
-    gap: 0.1rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 16px;
+    gap: 0.12rem;
   }
 
   .island-3d-pin-subtitle {
-    font-size: 0.56rem;
+    font-size: 0.58rem;
   }
 
   .island-3d-pin-title {
-    font-size: 0.76rem;
+    font-size: 0.82rem;
   }
 
   .island-3d-pin-action {
-    font-size: 0.62rem;
+    font-size: 0.65rem;
   }
 
-  /* Bottom Flight Dock: 4 Equal Compact Island Tabs on Phone */
+  /* Bottom Flight Dock: 4 Equal Compact Island Tabs on Phone with Concentric Radii */
   .flight-dock-container {
     width: calc(100vw - 1rem);
-    max-width: calc(100vw - 1rem);
-    bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
-    padding: 0.3rem;
-    gap: 0.25rem;
+    max-width: 440px;
+    bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px));
+    padding: 4px;
+    gap: 3px;
+    border-radius: 24px;
     justify-content: space-between;
   }
 
@@ -1987,9 +2008,9 @@ html[data-theme="dark"] .certificate-tab-btn.active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.2rem;
-    padding: 0.38rem 0.25rem;
-    border-radius: 14px;
+    gap: 0.15rem;
+    padding: 0.44rem 0.2rem;
+    border-radius: 20px;
   }
 
   .dock-portal-icon {
@@ -2007,13 +2028,20 @@ html[data-theme="dark"] .certificate-tab-btn.active {
     display: none;
   }
 
-  .dock-portal-label {
-    font-size: 0.68rem;
-    line-height: 1.1;
+  .dock-portal-label-full {
+    display: none;
+  }
+
+  .dock-portal-label-short {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 600;
+    line-height: 1.15;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
     max-width: 100%;
+    letter-spacing: -0.01em;
   }
 
   /* Flight Controls Guide Card on Mobile */
